@@ -1,7 +1,6 @@
 (проверки на три существующих питомца)
 Базовый позитивный случай:
-Метод API     GET pet id                                                                                     Результат выполнения
-                                                                                                                                Заголовки ответа содержат:
+Метод API     GET pet id                                                                                                        Результат выполнения                                                                                                                                                    Заголовки ответа содержат:
 http: // 34.141.58.52: 8000 /users/pet/25591
 Headers: 'Authorization': f'Bearer {my_token}'
                                                                                                                                 content-length: 315
@@ -9,11 +8,11 @@ Headers: 'Authorization': f'Bearer {my_token}'
                                                                                                                                 date: дата
                                                                                                                                 server: uvicorn
                                                                                                                                 Код ответа 200 (OK)
-                                                                                              В теле приходит json с корректной структурой
-                                                                                              В теле приходит информация о питомце 25591
+                                                                                                В теле приходит json с корректной структурой
+                                                                                                В теле приходит информация о питомце 25591
 
 Базовый позитивный случай:
-Метод API     GET pet id                                                                                      Результат выполнения
+Метод API     GET pet id                                                                                                        Результат выполнения
                                                                                                                                 Заголовки ответа содержат:
 http: // 34.141.58.52: 8000 /users/pet/25592
 Headers: 'Authorization': f'Bearer {my_token}'
@@ -26,7 +25,7 @@ Headers: 'Authorization': f'Bearer {my_token}'
                                                                                               В теле приходит информация о питомце 25592
 
 Базовый позитивный случай:
-Метод API     GET pet id                                                                                      Результат выполнения
+Метод API     GET pet id                                                                                                        Результат выполнения
                                                                                                                                 Заголовки ответа содержат:
 http: // 34.141.58.52: 8000 /users/pet/25595
 Headers: 'Authorization': f'Bearer {my_token}'
@@ -38,68 +37,63 @@ Headers: 'Authorization': f'Bearer {my_token}'
                                                                                               В теле приходит json с корректной структурой
                                                                                               В теле приходит информация о питомце 25595
 
-Негативный тест с невалидным id:                                                             Результат выполнения
-Метод API     GET pet id                                                                                  Заголовки ответа содержат:
+Негативный тест с невалидным id:                                                                                                Результат выполнения
+Метод API     GET pet id                                                                                                        Заголовки ответа содержат:
 http: // 34.141.58.52: 8000/users/pet/0
-Headers: 'Authorization': f'Bearer {not_my_token}'                                   Код ответа 404 (Pet not found)
-
-Негативный тест с некорректным вводом:
+Headers: 'Authorization': f'Bearer {not_my_token}'                                                                              Код ответа 404 (Pet not found)
 
 
 
-Деструктивное тестирование:                                                                       Результат выполнения
-Метод API     PUT/PATCH/DELETE                                                                  Заголовки ответа содержат:
+
+Деструктивное тестирование:                                                                                                     Результат выполнения
+Метод API     PUT/PATCH/DELETE                                                                                                  Заголовки ответа содержат:
 
 http: // 34.141.58.52: 8000 /users/pet/id
 Headers: 'Authorization': f'Bearer {not_my_token}'
 
 
 
-
-Позитивный случай с изображением jpg:                            Результат выполнения
-                                                                                                         Заголовки ответа содержат:
+ 
+Позитивный случай с изображением jpg:                                                                                           Результат выполнения
+                                                                                                                                Заголовки ответа содержат:
 Метод API POST pet id image
 http://34.141.58.52:8000/pet/25595/image                                                      
-Headers: 'Authorization': f'Bearer {my_token}'                        Код ответа 200 (OK)
-Name id, pic                                                                                      В теле приходит json с ссылкой на  фото                     
-                                                                                                                  Response headers:
-                                                                                                                  access-control-allow-credentials:true 
-                                                                                                                  content-length: 148
-                                                                                                                  content-type: application/json 
-                                                                                                                  date: дата
-                                                                                                                  server: uvicorn 
+Headers: 'Authorization': f'Bearer {my_token}'                                                                                 Код ответа 200 (OK)
+Name id, pic                                                                                                               В теле приходит json с ссылкой на  фото                     
+                                                                                                                           Response headers:
+                                                                                                                           access-control-allow-credentials:true 
+                                                                                                                           content-length: 148
+                                                                                                                           content-type: application/json 
+                                                                                                                           date: дата
+                                                                                                                           server: uvicorn 
 
-Негативный случай с файлом другого формата:                   Результат выполнения
-                                                                                                         Заголовки ответа содержат:
+Негативный случай с файлом другого формата:                                                                                    Результат выполнения
+                                                                                                                               Заголовки ответа содержат:
 
 Метод API POST pet id image
 http://34.141.58.52:8000/pet/25595/image                                                      
-Headers: 'Authorization': f'Bearer {my_token}'                        Код ответа 400 (Error: Bad Request)
- Name id, pic                                                                                           Invalid document type                                                                                  
+Headers: 'Authorization': f'Bearer {my_token}'                                                                            Код ответа 400 (Error: Bad Request)
+ Name id, pic                                                                                                             Invalid document type                                                                             
 
 
 
-создание питомца с данными существующего:                   Результат выполнения
-                                                                                                         Заголовки ответа содержат:
+создание питомца с данными существующего:                                                                                 Результат выполнения
+                                                                                                                          Заголовки ответа содержат:
 
 Метод API POST pet save
 http://34.141.58.52:8000/pet/ 
-Headers: 'Authorization': f'Bearer {my_token}'                        Код ответа 200 (ок)
-                                                                                                             Возвращается id нового питомца
+Headers: 'Authorization': f'Bearer {my_token}'                                                                            Код ответа 200 (ок)
+                                                                                                                          Возвращается id нового питомца
 
 
-Негативный тест с некорректным вводом:
 
-создание питомца с данными русскими символами:                   Результат выполнения
-                                                                                                                  Заголовки ответа содержат:
 
+создание питомца с данными русскими символами:                                                                           Результат выполнения
+                                                                                                                         Заголовки ответа содержат:
 Метод API POST pet save
 http://34.141.58.52:8000/pet/ 
-Headers: 'Authorization': f'Bearer {my_token}'                                  Код ответа 200 (ок)
-                                                                                                             Возвращается id нового питомца
-
-
-
+Headers: 'Authorization': f'Bearer {my_token}'                                                                           Код ответа 200 (ок)
+                                                                                                                         Возвращается id нового питомца
 
 
 
